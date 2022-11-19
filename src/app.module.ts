@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MoviesController } from './modules/movies/movies.controller';
+import { FilmsController } from './modules/films/film.controller';
 import { ConfigModule } from '@nestjs/config/dist/config.module';
 import { RedisModule } from './modules/redis/redis-module';
 import { getDbConfig } from './configs/database-config';
@@ -13,7 +13,7 @@ import { getDbConfig } from './configs/database-config';
     TypeOrmModule.forRoot(getDbConfig()),
     RedisModule,
   ],
-  controllers: [AppController, MoviesController],
+  controllers: [AppController, FilmsController],
   providers: [AppService],
 })
 export class AppModule {}

@@ -9,10 +9,10 @@ import { DEFAULT_APP_PORT } from './configs/constants';
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle('Movies API')
-    .setDescription('API made to get movies from api de fulano ')
+    .setTitle('Films API')
+    .setDescription('API made to get films from Studio Ghibli API')
     .setVersion('1.0.0')
-    .addTag('movies')
+    .addTag('films')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);

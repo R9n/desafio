@@ -66,3 +66,10 @@ export const MAX_DIRECTOR_NAME_SIZE = 180;
 export const MAX_PRODUCER_NAME_SIZE = 180;
 export const MAX_RELEASE_DATE_SIZE = 180;
 export const MAX_FILM_URL_SIZE = 180;
+
+//Ghibli API
+export const MAX_RECORDS_TO_PULL_FROM_GHIBLI = Number.parseInt(
+  process.env.MAX_RECORDS_TO_PULL_FROM_GHIBLI,
+  10,
+);
+export const GHIBLI_API_HOST = String(process.env.GHIBLI_API_HOST);

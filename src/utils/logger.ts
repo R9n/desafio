@@ -69,7 +69,7 @@ const formatLogProd = combine(
 );
 // Não esquecer de dizer ao avaliador que, normalmente em produção não utilizamsos
 // transporters de console, vou deixar aqui apenas para debug mesmo
-export const WinstonLogger: winston.Logger = createLogger({
+export const AppLogger: winston.Logger = createLogger({
   format: formatLogProd,
   transports: [
     new transports.File({

@@ -4,19 +4,14 @@ import {
   Inject,
   Module,
 } from '@nestjs/common';
-import * as redisStore from 'cache-manager-ioredis';
 import { Cache } from 'cache-manager';
+import { getCacheConfig } from 'src/configs/redis-config';
 
 @Module({
   imports: [
     BaseCacheModule.registerAsync({
       useFactory: () => {
-        return {
-          store: redisStore,
-          host: 'localhost',
-          port: 6000,
-          password: '123456789',
-        };
+        return getCacheConfig();
       },
     }),
   ],

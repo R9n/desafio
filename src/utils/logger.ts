@@ -1,6 +1,6 @@
 import * as winston from 'winston';
 
-import { LogLevels } from '../config/enums/winston-log-levels';
+import { LogLevels } from '../configs/enums/winston-log-levels';
 
 const { format, createLogger, transports } = winston;
 const { combine, timestamp, printf, colorize } = format;
@@ -17,7 +17,7 @@ const errorStackFormat = format((info) => {
   return info;
 });
 
-const formatLogMessage = (info) => {
+const formatLogMessage = (info: winston.Logform.TransformableInfo): string => {
   const logLevel = info.level.toString();
 
   switch (logLevel) {
@@ -38,21 +38,25 @@ const formatLogMessage = (info) => {
   }
 };
 
-const sendLogToCloud = format((info) => {
-  if (info instanceof Error) {
-    const formatedError = {
-      ...info,
-      stack: info.stack,
-      message: info.message,
-      isError: true,
-    };
-    // Aqui a gente poderia enviar os logs para um datalake ou algo assim
-    // nos projetos que trabalhei recentemente, por exemplo,
-    // esses dados eram enviados para o cloudwatch
-    return formatedError;
-  }
-  return info;
-});
+const sendLogToCloud = format(
+  (
+    info: winston.Logform.TransformableInfo,
+  ): winston.Logform.TransformableInfo => {
+    if (info instanceof Error) {
+      const formatedError = {
+        ...info,
+        stack: info.stack,
+        message: info.message,
+        isError: true,
+      };
+      // Aqui a gente poderia enviar os logs para um datalake ou algo assim
+      // nos projetos que trabalhei recentemente, por exemplo,
+      // esses dados eram enviados para o cloudwatch
+      return formatedError;
+    }
+    return info;
+  },
+);
 
 const formatLogProd = combine(
   timestamp({
@@ -70,7 +74,7 @@ export const WinstonLogger: winston.Logger = createLogger({
   transports: [
     new transports.File({
       filename: './logs/app.log',
-      // Descomente a linha abaixo lipar os logs do arquivo de log logs/app.log todas as vezes que a aplicação reiniciar
+      // Descomente a linha abaixo para lipar os logs do arquivo de log logs/app.log todas as vezes que a aplicação reiniciar
       // options: { flags: 'w' },
     }),
     new transports.Console(),

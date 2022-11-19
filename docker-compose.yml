@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:5432
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '${CACHE_SERVICE_PORT}:6379'
+    command: redis-server --loglevel warning --requirepass ${CACHE_SERVICE_PASSWORD}
+  # api:
+  #   container_name: movie-api
+  #   build:
+  #     context: ./
+  #   image: movies-api
+  #   depends_on:
+  #     - db
+  #     - cache
+  #   ports:
+  #     - ${APP_PORT}:3000

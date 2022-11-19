@@ -2,10 +2,9 @@ import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import * as dotenv from 'dotenv';
-import { APP_PORT } from './config/constants';
-dotenv.config();
-
+import { DEFAULT_APP_PORT } from './config/constants';
+import { config } from 'dotenv';
+config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
@@ -16,6 +15,6 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
-  await app.listen(APP_PORT);
+  await app.listen(DEFAULT_APP_PORT);
 }
 bootstrap();

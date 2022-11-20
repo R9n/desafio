@@ -5,7 +5,7 @@ import {
   Module,
 } from '@nestjs/common';
 import { Cache } from 'cache-manager';
-import { getCacheConfig } from 'src/configs/redis-config';
+import { getCacheConfig } from 'src/configs/redis.config';
 
 @Module({
   imports: [

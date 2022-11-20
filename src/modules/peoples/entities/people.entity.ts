@@ -48,4 +48,8 @@ export class People {
 
   @ManyToOne(() => Specie, (specie: Specie) => specie.peoples)
   specie: Specie;
+
+  constructor(people: Partial<People>) {
+    Object.assign(this, people);
+  }
 }

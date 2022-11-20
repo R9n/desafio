@@ -50,4 +50,8 @@ export class Specie {
 
   @OneToMany(() => People, (people: People) => people.specie)
   peoples: People[];
+
+  constructor(specie: Partial<Specie>) {
+    Object.assign(this, specie);
+  }
 }

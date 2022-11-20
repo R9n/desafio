@@ -44,4 +44,8 @@ export class Vehicle {
 
   @ManyToMany(() => Film)
   films: Film[];
+
+  constructor(vehicle: Partial<Vehicle>) {
+    Object.assign(this, vehicle);
+  }
 }

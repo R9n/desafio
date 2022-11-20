@@ -91,7 +91,7 @@ export class Film {
 
   @ManyToMany(() => People)
   @JoinTable()
-  categories: People[];
+  peoples: People[];
 
   @ManyToMany(() => Specie)
   @JoinTable()
@@ -103,4 +103,8 @@ export class Film {
   @ManyToMany(() => Vehicle)
   @JoinTable()
   vehicles: Vehicle[];
+
+  constructor(film: Partial<Film>) {
+    Object.assign(this, film);
+  }
 }

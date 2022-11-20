@@ -53,4 +53,8 @@ export class Location {
 
   @JoinTable()
   residents: People[];
+
+  constructor(location: Partial<Location>) {
+    Object.assign(this, location);
+  }
 }

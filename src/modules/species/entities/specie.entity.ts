@@ -32,14 +32,14 @@ export class Specie {
     name: 'eye_color',
     nullable: true,
   })
-  eyeColor: string;
+  eyeColors: string;
 
   @Column({
     length: MAX_PEOPLE_HAIR_COLOR_SIZE,
     name: 'hair_color',
     nullable: true,
   })
-  hairColor: string;
+  hairColors: string;
 
   @ManyToMany(() => Film)
   @JoinTable()

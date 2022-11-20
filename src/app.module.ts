@@ -8,6 +8,10 @@ import { RedisModule } from './modules/redis/redis.module';
 import { getDbConfig } from './configs/database.config';
 import { HttpModule } from '@nestjs/axios';
 import { FilmModule } from './modules/films/film.module';
+import { SpecieModule } from './modules/species/specie.module';
+import { LocationModule } from './modules/locations/location.module';
+import { VehicleModule } from './modules/vehicles/vehicle.module';
+import { PeopleModule } from './modules/peoples/people.module';
 
 @Module({
   imports: [
@@ -16,6 +20,10 @@ import { FilmModule } from './modules/films/film.module';
     RedisModule,
     HttpModule,
     FilmModule,
+    SpecieModule,
+    LocationModule,
+    VehicleModule,
+    PeopleModule,
   ],
   controllers: [AppController, FilmsController],
   providers: [AppService],

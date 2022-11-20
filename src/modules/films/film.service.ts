@@ -13,4 +13,10 @@ export class FilmService {
   async saveFilm(film: Film): Promise<Film> {
     return this.filmsRepository.save(film);
   }
+  async getFilmById(filmId: string): Promise<Film> {
+    return this.filmsRepository.findOne({
+      where: { id: filmId },
+      relations: ['peoples', 'species', 'locations', 'vehicles'],
+    });
+  }
 }

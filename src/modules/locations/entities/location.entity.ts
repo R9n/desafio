@@ -7,7 +7,7 @@ import {
 } from 'src/configs/constants';
 import { Film } from 'src/modules/films/entities/film-entity';
 import { People } from 'src/modules/peoples/entities/people.entity';
-import { Column, Entity, JoinTable, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 
 @Entity({ name: 'location' })
 export class Location {
@@ -45,8 +45,8 @@ export class Location {
   })
   surfaceWater: string;
 
-  @ManyToOne(() => Film, (film: Film) => film.locations)
-  film: Film;
+  @ManyToMany(() => Film)
+  films: Film[];
 
   @JoinTable()
   residents: People[];

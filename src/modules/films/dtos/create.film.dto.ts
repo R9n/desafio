@@ -29,7 +29,7 @@ export class CreateFilmDto {
 
   url: string;
 
-  categories: People[];
+  peoples: People[];
 
   species: Specie[];
 

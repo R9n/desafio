@@ -33,7 +33,7 @@ export class Vehicle {
   })
   vehicleClass: string;
 
-  @Column({ name: 'length', nullable: true })
+  @Column({ type: 'numeric', name: 'length', nullable: true })
   length: number;
 
   @JoinTable()

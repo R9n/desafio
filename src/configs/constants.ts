@@ -37,9 +37,9 @@ export const MIN_PEOPLE_FILDS_SIZE = 0;
 export const MAX_URL_PEOPLE_SIZE = 120;
 export const MAX_PEOPLE_NAME_SIZE = 80;
 export const MAX_PEOPLE_GENDER_SIZE = 15;
-export const MAX_PEOPLE_EYE_COLOR_SIZE = 10;
-export const MAX_PEOPLE_HAIR_COLOR_SIZE = 10;
-export const MAX_PEOPLE_AGE_COLOR_SIZE = 10;
+export const MAX_PEOPLE_EYE_COLOR_SIZE = 80;
+export const MAX_PEOPLE_HAIR_COLOR_SIZE = 80;
+export const MAX_PEOPLE_AGE_SIZE = 56;
 
 //species
 export const MIN_SPECIES_FILDS_SIZE = 0;
@@ -61,7 +61,7 @@ export const MAX_ORIGINAL_TITLE_SIZE = 180;
 export const MAX_ORIGINAL_TITLE_ROMANISED_SIZE = 180;
 export const MAX_IMAGE_SIZE = 180;
 export const MAX_FILM_BANNER_SIZE = 180;
-export const MAX_FILM_DESCRIPTION_SIZE = 512;
+export const MAX_FILM_DESCRIPTION_SIZE = 1024;
 export const MAX_DIRECTOR_NAME_SIZE = 180;
 export const MAX_PRODUCER_NAME_SIZE = 180;
 export const MAX_RELEASE_DATE_SIZE = 180;

@@ -13,7 +13,7 @@ import { Location } from 'src/modules/locations/entities/location.entity';
 import { People } from 'src/modules/peoples/entities/people.entity';
 import { Specie } from 'src/modules/species/entities/specie.entity';
 import { Vehicle } from 'src/modules/vehicles/entities/vehicles.entity';
-import { Column, Entity, JoinTable, ManyToMany, OneToMany } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 
 @Entity({ name: 'film' })
 export class Film {
@@ -69,18 +69,20 @@ export class Film {
   producer: string;
 
   @Column({
+    type: 'numeric',
     name: 'release_date',
     nullable: true,
   })
   releaseDate: number;
 
   @Column({
+    type: 'numeric',
     name: 'running_time',
     nullable: true,
   })
   runningTime: number;
 
-  @Column({ name: 'rt_score', nullable: true })
+  @Column({ type: 'numeric', name: 'rt_score', nullable: true })
   rtScore: number;
 
   @Column({ length: MAX_FILM_URL_SIZE, name: 'url', nullable: true })
@@ -94,7 +96,8 @@ export class Film {
   @JoinTable()
   species: Specie[];
 
-  @OneToMany(() => Location, (location: Location) => location.film)
+  @ManyToMany(() => Location)
+  @JoinTable()
   locations: Location[];
 
   @ManyToMany(() => Vehicle)

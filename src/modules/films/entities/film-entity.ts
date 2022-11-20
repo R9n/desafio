@@ -20,9 +20,6 @@ export class Film {
   @Column({ primary: true })
   id: string;
 
-  @Column({ name: 'original_source_id' })
-  originalSourceId: string;
-
   @Column({ length: MAX_TITLE_FILM_SIZE, name: 'name', nullable: false })
   title: string;
 

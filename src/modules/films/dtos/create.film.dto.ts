@@ -5,8 +5,6 @@ import { Vehicle } from 'src/modules/vehicles/entities/vehicles.entity';
 export class CreateFilmDto {
   id: string;
 
-  originalSourceId: string;
-
   title: string;
 
   originalTitle: string;

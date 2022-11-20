@@ -17,9 +17,6 @@ export class Specie {
   @Column({ length: MAX_URL_SPECIE_SIZE, name: 'specie_url', nullable: true })
   specieUrl: string;
 
-  @Column({ name: 'original_source_id' })
-  originalSourceId: string;
-
   @Column({ length: MAX_NAME_LOCATION_SIZE, name: 'name', nullable: true })
   name: string;
 

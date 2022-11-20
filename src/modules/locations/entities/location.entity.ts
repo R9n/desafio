@@ -21,9 +21,6 @@ export class Location {
   })
   locationUrl: string;
 
-  @Column({ name: 'original_source_id' })
-  originalSourceId: string;
-
   @Column({ length: MAX_NAME_LOCATION_SIZE, name: 'name', nullable: true })
   name: string;
 

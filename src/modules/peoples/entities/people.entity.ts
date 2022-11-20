@@ -40,9 +40,6 @@ export class People {
   @Column({ length: MAX_URL_PEOPLE_SIZE, name: 'url', nullable: true })
   url: string;
 
-  @Column({ name: 'original_source_id' })
-  originalSourceId: string;
-
   @ManyToMany(() => Film)
   films: Film[];
 

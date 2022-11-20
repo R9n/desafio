@@ -6,8 +6,6 @@ export class CreateSpecieDto {
 
   specieUrl: string;
 
-  originalSourceId: string;
-
   name: string;
 
   classification: string;

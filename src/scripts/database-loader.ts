@@ -56,7 +56,6 @@ export async function loadGhibliDATA(
 
       for (const people of film.people) {
         const peoples = await getPeoples(people, httpService);
-
         newFilm.peoples = newFilm.peoples.concat(peoples);
       }
       for (const specie of film.species) {

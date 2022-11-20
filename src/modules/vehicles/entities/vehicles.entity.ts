@@ -16,9 +16,6 @@ export class Vehicle {
   @Column({ length: MAX_URL_VEHICLE_SIZE, name: 'vehicle_url', nullable: true })
   vehicleUrl: string;
 
-  @Column({ name: 'original_source_id' })
-  originalSourceId: string;
-
   @Column({ length: MAX_NAME_VEHICLE_SIZE, name: 'name', nullable: true })
   name: string;
 

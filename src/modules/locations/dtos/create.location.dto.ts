@@ -6,8 +6,6 @@ export class CreateLocationDto {
 
   locationUrl: string;
 
-  originalSourceId: string;
-
   name: string;
 
   climate: string;

@@ -16,8 +16,6 @@ export class CreatePeopleDto {
 
   url: string;
 
-  originalSourceId: string;
-
   films: Film[];
 
   specie: Specie;

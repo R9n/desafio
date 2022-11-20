@@ -6,8 +6,6 @@ export class CreateVehicleDto {
 
   vehicleUrl: string;
 
-  originalSourceId: string;
-
   name: string;
 
   description: string;

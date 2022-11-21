@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   GHIBLI_API_HOST,
   MAX_RECORDS_TO_PULL_FROM_GHIBLI,
@@ -58,47 +59,61 @@ export async function loadGhibliDATA(
 
     AppLogger.info('Inserting on local database, please await...');
 
-    for (const film of sourceData.data) {
-      const newFilm = new Film({
-        director: film.director,
-        id: film.id,
-        title: film.title,
-        originalTitle: film.original_title,
-        originalTitleRomanised: film.original_title_romanised,
-        image: film.image,
-        filmBanner: film.movie_banner,
-        description: film.description,
-        producer: film.producer,
-        releaseDate: film.release_date,
-        runningTime: film.running_time,
-        rtScore: film.rt_score,
-        url: film.url,
-      });
+    await Promise.all(
+      sourceData.data.map(async (film: any) => {
+        const newFilm = new Film({
+          director: film.director,
+          id: film.id,
+          title: film.title,
+          originalTitle: film.original_title,
+          originalTitleRomanised: film.original_title_romanised,
+          image: film.image,
+          filmBanner: film.movie_banner,
+          description: film.description,
+          producer: film.producer,
+          releaseDate: film.release_date,
+          runningTime: film.running_time,
+          rtScore: film.rt_score,
+          url: film.url,
+        });
 
-      newFilm.peoples = [];
-      newFilm.vehicles = [];
-      newFilm.locations = [];
-      newFilm.species = [];
+        newFilm.peoples = [];
+        newFilm.vehicles = [];
+        newFilm.locations = [];
+        newFilm.species = [];
 
-      for (const people of film.people) {
-        const peoples = await getPeoples(people, httpService);
-        newFilm.peoples = newFilm.peoples.concat(peoples);
-      }
-      for (const specie of film.species) {
-        const species = await getSpecies(specie, httpService);
-        newFilm.species = newFilm.species.concat(species);
-      }
-      for (const location of film.locations) {
-        const locations = await getLocations(location, httpService);
-        newFilm.locations = newFilm.locations.concat(locations);
-      }
-      for (const vehicle of film.vehicles) {
-        const vehicles = await getVehicles(vehicle, httpService);
-        newFilm.vehicles = newFilm.vehicles.concat(vehicles);
-      }
-      AppLogger.info('Saving film');
-      await filmService.saveFilm(newFilm);
-    }
+        await Promise.all(
+          film.people.map(async (people: any) => {
+            const peoples = await getPeoples(people, httpService);
+            newFilm.peoples = newFilm.peoples.concat(peoples);
+          }),
+        );
+
+        await Promise.all(
+          film.locations.map(async (location: any) => {
+            const locations = await getLocations(location, httpService);
+            newFilm.locations = newFilm.locations.concat(locations);
+          }),
+        );
+
+        await Promise.all(
+          film.species.map(async (specie: any) => {
+            const species = await getSpecies(specie, httpService);
+            newFilm.species = newFilm.species.concat(species);
+          }),
+        );
+
+        await Promise.all(
+          film.vehicles.map(async (vehicle: any) => {
+            const vehicles = await getVehicles(vehicle, httpService);
+            newFilm.vehicles = newFilm.vehicles.concat(vehicles);
+          }),
+        );
+
+        AppLogger.info(`Saving film ${newFilm.id}`);
+        await filmService.saveFilm(newFilm);
+      }),
+    );
 
     AppLogger.info(`${maxFilmsToPull} films inserted/updated successfully!`);
     AppLogger.info('Proceeding to application startup');

@@ -1,5 +1,20 @@
 // Application config
 export const DEFAULT_APP_PORT = 3000;
+export const MIN_PAGINATION_SIZE = Number.parseInt(
+  process.env.MIN_PAGINATION_SIZE,
+  10,
+);
+export const DEFAULT_PAGINATION_SIZE = Number.parseInt(
+  process.env.DEFAULT_PAGINATION_SIZE,
+  10,
+);
+
+export const MAX_PAGINATION_SIZE = Number.parseInt(
+  process.env.MAX_PAGINATION_SIZE,
+  10,
+);
+
+export const MIN_OFFSET_SIZE = 0;
 
 //Database config
 export const DB_PORT = Number.parseInt(process.env.DB_PORT, 10);

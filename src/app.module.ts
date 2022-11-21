@@ -11,6 +11,7 @@ import { SpecieModule } from './modules/species/specie.module';
 import { LocationModule } from './modules/locations/location.module';
 import { VehicleModule } from './modules/vehicles/vehicle.module';
 import { PeopleModule } from './modules/peoples/people.module';
+import { RedisService } from './modules/redis/redis.service';
 
 @Module({
   imports: [
@@ -24,6 +25,6 @@ import { PeopleModule } from './modules/peoples/people.module';
     PeopleModule,
   ],
   controllers: [AppController, FilmsController],
-  providers: [AppService],
+  providers: [AppService, RedisService],
 })
 export class AppModule {}

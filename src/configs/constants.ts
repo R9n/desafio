@@ -32,6 +32,10 @@ export const CACHE_SERVICE_PASSWORD = String(
   process.env.CACHE_SERVICE_PASSWORD,
 );
 export const CACHE_SERVICE_HOST = String(process.env.CACHE_SERVICE_HOST);
+export const CACHE_MAX_TIME_TO_LIVE_SECONDS = Number.parseInt(
+  process.env.CACHE_MAX_TIME_TO_LIVE_SECONDS,
+  10,
+);
 
 /*
 Vou generalizar os valores mínimos para todos os campos como sendo 0

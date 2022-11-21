@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 import { getCacheConfig } from 'src/configs/redis.config';
+import { RedisService } from './redis.service';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { getCacheConfig } from 'src/configs/redis.config';
       },
     }),
   ],
-  exports: [BaseCacheModule],
+  providers: [BaseCacheModule, RedisService],
+  exports: [BaseCacheModule, RedisService],
 })
 export class RedisModule {
   constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}

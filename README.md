@@ -90,10 +90,6 @@ Para acessar a documentação da api basta abrir este ender no seu navegador ap�
 5.  Apesar de ter criado um Dockerfile para a aplicação, preferi deixar ela rodando no console para que seja possível para quem for avaliar ver os logs que ela gera ao fazer as operações do endpoint solicitado
 6.  Sei que comentários no código não são uma boa prática. Porém, dado que este é um repositório para avaliação, deixei uns 2 ou três comentários explicando sobre coisas que podem e devem (ou não kkkkk) ser feitas em produção.
 
-7) Como a aplicação não está conteinerizada, é normal que ao iniciar ela utilizando o comando **npm run init** a aplicação fique de pé antes do container do banco de dados. Neste caso irá dar um pequeno erro que logo irá desaparecer. É um erro esperado e que não impacta no funcionamento da aplicação. Segue um print da situação.
-
-![erro-esperado](docs/norma-error.png)
-
 ## Tecnologias utilizadas
 
 Para criar este projeto eu utilizei as seguintes ferramentas/tecnologias:

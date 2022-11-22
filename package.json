@@ -16,7 +16,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "check-docker": "docker -v",
     "start-containers": "docker-compose up -d",
-    "init": "npm run check-docker && npm i && npm run start-containers && echo \"Containers started sucessfully\" && npm run start"
+    "init": "npm run check-docker && npm run start-containers && echo \"Containers started sucessfully\" && npm i && npm run start"
   },
   "dependencies": {
     "@nestjs/axios": "^1.0.0",

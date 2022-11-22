@@ -26,13 +26,9 @@
 
 Projeto desenvolvido para implementar o desafio proposto pela empresa.
 Inicialmente havia sido pedido apenas para baixar algumas informações da api source passada, poreḿ resolvi ir um pouquinho além do que foi pedido como logs , cache e muito mais, espero que gostem. 😃
-
 Alguns pontos acabei não olhando afim de entregar o projeto funcionando dentro do prazo que me propûs a fazer. É caso por exemplo do banco de dados, provavelmente não deve estar normalizado, porém está comportando bem os dados então resolvi deixar do modo como está mesmo.
-
 Também existem alguns pontos do código que estão do modo que estão por simplicidade, mas existe um comentário em cada um desses pontos onde existem situações que, se fosse uma API indo para produção tais coisas não seriam feitas.
-
 Dado que era necessário usar alguma base de dados acabei obtando por usar Docker, então quem for fazer o teste da api deverá ter o docker e o docker-compose instalados na máquina.
-
 Bom é isso, espero que tenha ficado bem bacana. 😃 😃
 
 ## Instalação
@@ -45,8 +41,8 @@ $ npm i
 
 ## Docker
 
-Conforme mencionado, utilizei para fazer o desafio o Docker, logo é preciso que quem for testar tenha instalado em sua máquina tanto o docker como o docker compose.
-Para instalá-los basta seguir os passos do site oficial:
+Conforme mencionado, utilizei para fazer odesafio o Docker, logo é preciso que quem for testar tenha instalado em sua máquina tanto o docker como o docker compose.
+Para instlá-los basta seguir os passos do site oficial:
 
 1. **Instalar Docker**: [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 2. **Instalar Docker Compose**: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
@@ -93,6 +89,10 @@ Para acessar a documentação da api basta abrir este ender no seu navegador ap�
 4.  Como eu precisei usar docker será necessário que a pessoa que for executar a API tenha essa ferramenta instalada (Docker e Docker Compose)
 5.  Apesar de ter criado um Dockerfile para a aplicação, preferi deixar ela rodando no console para que seja possível para quem for avaliar ver os logs que ela gera ao fazer as operações do endpoint solicitado
 6.  Sei que comentários no código não são uma boa prática. Porém, dado que este é um repositório para avaliação, deixei uns 2 ou três comentários explicando sobre coisas que podem e devem (ou não kkkkk) ser feitas em produção.
+
+7) Como a aplicação não está conteinerizada, é normal que ao iniciar ela utilizando o comando **npm run init** a aplicação fique de pé antes do container do banco de dados. Neste caso irá dar um pequeno erro que logo irá desaparecer. É um erro esperado e que não impacta no funcionamento da aplicação. Segue um print da situação.
+
+![erro-esperado](docs/norma-error.png)
 
 ## Tecnologias utilizadas
 

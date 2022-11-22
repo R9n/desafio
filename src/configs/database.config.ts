@@ -15,6 +15,7 @@ export function getDbConfig(): TypeOrmModuleOptions {
     password: DB_PASSWORD,
     database: DB_NAME,
     entities: [Film, People, Vehicle, Specie, Location],
-    synchronize: true,
-  };
+    synchronize: true, // Geralmente não utilizamos synchronize como true
+  }; // O correto mesmo é utilizar migrations para versionar o banco de dados
+  // Não utilizei aqui apenas por questões de praticidade
 }
